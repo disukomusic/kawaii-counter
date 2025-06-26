@@ -118,5 +118,125 @@
       "borderWidth": "2"
     },
     "bg": null
+  },
+  "af599bfc46c7": {
+    "count": 0,
+    "site": "voidred.dev",
+    "options": {
+      "label": "visits",
+      "layout": "default",
+      "font": "Arial",
+      "bg": "#000000",
+      "fontColor": "#ff0000",
+      "border": "double",
+      "borderColor": "#ff0000",
+      "borderWidth": "8"
+    },
+    "bg": null
+  },
+  "bf2366e5c45f": {
+    "count": 0,
+    "site": "voidred.dev",
+    "options": {
+      "label": "visits",
+      "layout": "default",
+      "font": "Arial",
+      "bg": "#000000",
+      "fontColor": "#ff0000",
+      "border": "double",
+      "borderColor": "#ff0000",
+      "borderWidth": "8"
+    },
+    "bg": null
+  },
+  "85d9481d9bd3": {
+    "count": 0,
+    "site": "voidred.dev",
+    "options": {
+      "label": "visits",
+      "layout": "default",
+      "font": "Arial",
+      "bg": "#000000",
+      "fontColor": "#ff0000",
+      "border": "double",
+      "borderColor": "#ff0000",
+      "borderWidth": "8"
+    },
+    "bg": null
+  },
+  "9d99f0479248": {
+    "count": 0,
+    "site": "voidred.dev",
+    "options": {
+      "label": "visits",
+      "layout": "default",
+      "font": "Arial",
+      "bg": "#000000",
+      "fontColor": "#ff0000",
+      "border": "double",
+      "borderColor": "#ff0000",
+      "borderWidth": "8"
+    },
+    "bg": null
+  },
+  "85f7bb0b470a": {
+    "count": 0,
+    "site": "voidred.dev",
+    "options": {
+      "label": "visits",
+      "layout": "default",
+      "font": "Arial",
+      "bg": "#000000",
+      "fontColor": "#ff0000",
+      "border": "double",
+      "borderColor": "#ff0000",
+      "borderWidth": "8"
+    },
+    "bg": null
+  },
+  "8a35ab1d3002": {
+    "count": 0,
+    "site": "voidred.dev",
+    "options": {
+      "label": "visits",
+      "layout": "default",
+      "font": "Arial",
+      "bg": "#000000",
+      "fontColor": "#ff0000",
+      "border": "double",
+      "borderColor": "#ff0000",
+      "borderWidth": "8"
+    },
+    "bg": null
+  },
+  "f3e463afc62e": {
+    "count": 9,
+    "site": "voidred.dev",
+    "options": {
+      "label": "visits",
+      "layout": "default",
+      "font": "Arial",
+      "bg": "#000000",
+      "fontColor": "#ff0000",
+      "border": "double",
+      "borderColor": "#ff0000",
+      "borderWidth": "8"
+    },
+    "bg": null
+  },
+  "15ab4955b0a3": {
+    "count": 133,
+    "site": "miku.rat.pics",
+    "options": {
+      "label": "funny dog",
+      "layout": "default",
+      "font": "Trebuchet MS",
+      "bg": "#f9f06b",
+      "fontColor": "#ff7800",
+      "border": "dotted",
+      "borderColor": "#63452c",
+      "borderWidth": "2"
+    },
+    "bg": "/bg/15ab4955b0a3.png"
   }
 }
