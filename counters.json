@@ -1,0 +1,47 @@
+{
+  "2689f6facee2": {
+    "count": 14,
+    "site": "1234",
+    "options": {
+      "label": "Visits",
+      "layout": "default",
+      "font": "Arial",
+      "bg": "#ffe4ec",
+      "fontColor": "#7e2f8e",
+      "border": "solid",
+      "borderColor": "#ffaad4",
+      "borderWidth": "2"
+    },
+    "bg": null
+  },
+  "88066f045436": {
+    "count": 15,
+    "site": "BackgroundTestCounter",
+    "options": {
+      "label": "Visits",
+      "layout": "default",
+      "font": "Arial",
+      "bg": "#ffe4ec",
+      "fontColor": "#7e2f8e",
+      "border": "solid",
+      "borderColor": "#ffaad4",
+      "borderWidth": "2"
+    },
+    "bg": "/bg/88066f045436.png"
+  },
+  "c48e7b07f5cc": {
+    "count": 6969,
+    "site": "test counter!",
+    "options": {
+      "label": "amogus",
+      "layout": "default",
+      "font": "Arial",
+      "bg": "#fff3cd",
+      "fontColor": "#ff6f00",
+      "border": "solid",
+      "borderColor": "#ffe082",
+      "borderWidth": "2"
+    },
+    "bg": null
+  }
+}

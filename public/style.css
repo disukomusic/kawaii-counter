@@ -1,0 +1,67 @@
+﻿body {
+    font-family: 'Comic Sans MS', cursive;
+    background-image: url("https://bettysgraphics.neocities.org/images/backgrounds/gingham%202.jpg");
+    color: #d63384;
+    text-align: center;
+    padding: 2em;
+}
+form {
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(255, 182, 193, 0.2);
+    max-width: 600px;
+    margin: auto;
+    background: #fff0f5; 
+    padding: 0.5em 0; 
+    border-bottom: 2px solid #ffaad4;
+}
+input, select, button {
+    padding: 0.5em;
+    border: 2px solid #ffc0cb;
+    background: #fff;
+    font-family: inherit;
+    border-radius: 8px;
+    margin: 0.5em;
+    cursor: pointer;
+}
+input[type='color'] {
+    width: 88px;
+    height: 88px;
+}
+label {
+    display: block;
+    margin-top: 1em;
+    font-weight: bold;
+}
+textarea {
+    width: 90%;
+    border-radius: 6px;
+    padding: 1em;
+    border: 2px solid #ffb6c1;
+    margin-top: 1em;
+}
+.theme-preview {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 1em 0;
+}
+.theme-option {
+    width: 40px;
+    height: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid #d63384;
+    outline: 2px solid white;
+}
+.preview-box {
+    margin-top: 1em;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}

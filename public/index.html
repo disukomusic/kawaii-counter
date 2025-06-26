@@ -1,16 +1,127 @@
-<!-- FRONTEND CODE (HTML page that displays the badge) -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Visit Counter Badge</title>
+  <meta charset="UTF-8" />
+  <title>🌸kawaii counter!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet" />
+  <link href="./style.css" rel="stylesheet"/>
 </head>
 <body>
-  <h1>Welcome to My Website!</h1>
-  <p>This site has been visited:</p>
+
+<div id="scrollingCounters" style="overflow: hidden; white-space: nowrap; background: #fff0f5; padding: 0.5em 0; border-bottom: 2px solid #ffaad4;">
+    <div id="counterTrack" style="display: inline-block; animation: scroll-left 30s linear infinite;"></div>
+</div>
+
+
+<h1> <img src="https://blob.gifcities.org/gifcities/3F37A7E6ZX44LKUYPBK7VK3N4YAGFJI7.gif"> kawaii counter</h1>
+<form id="counterForm" enctype="multipart/form-data">
+  <input type="text" id="site" placeholder="site link" required /><br />
+  <input type="text" id="label" placeholder="label" value="visits" /><br />
+
   
-  <!-- The image is served by the backend and updates the counter -->
-  <img src="http://localhost:3000/counter.png?page=home" alt="Visit Counter" width="88" height="31">
+  <label>start at:</label>
+  <input type="number" id="startAt" value="0" min="0" step="1" /><br />
+
+  <label>counter layout:</label>
+  <select id="layout">
+    <option value="default">Label on top, number below</option>
+    <option value="number-only">Number only</option>
+    <option value="side-by-side">Label left, number right</option>
+    <option value="vertical-label">Label vertical left</option>
+  </select>
+
+  <label>font:</label>
+  <select id="font">
+    <option value="Arial">Arial</option>
+    <option value="Verdana">Verdana</option>
+    <option value="Tahoma">Tahoma</option>
+    <option value="Trebuchet MS">Trebuchet MS</option>
+    <option value="Times New Roman">Times New Roman</option>
+    <option value="Georgia">Georgia</option>
+    <option value="Courier New">Courier New</option>
+    <option value="Lucida Console">Lucida Console</option>
+    <option value="Comic Sans MS">Comic Sans MS</option>
+
+  </select>
+
+  <label>🎨 default styles:</label>
+  <div class="theme-preview">
+    <div class="theme-option" data-bg="#ffe4ec" data-font="#d63384" data-border="#ffaad4" style="background: #ffe4ec"></div>
+    <div class="theme-option" data-bg="#e0f7fa" data-font="#00796b" data-border="#4dd0e1" style="background: #e0f7fa"></div>
+    <div class="theme-option" data-bg="#f3e5f5" data-font="#6a1b9a" data-border="#ce93d8" style="background: #f3e5f5"></div>
+    <div class="theme-option" data-bg="#fff3cd" data-font="#ff6f00" data-border="#ffe082" style="background: #fff3cd"></div>
+    <div class="theme-option" data-bg="#e8f5e9" data-font="#2e7d32" data-border="#81c784" style="background: #e8f5e9"></div>
+  </div>
+
+  <label>🌈 or pick ur own colors!</label>
+  <div style="display: flex; gap: 1em; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: 0.5em;">
+    <div style="display: flex; flex-direction: column; align-items: center">
+      <label>Background</label>
+      <input type="color" id="theme" value="#ffe4ec" style="width: 60px; height: 40px" />
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center">
+      <label>Font</label>
+      <input type="color" id="fontColor" value="#7e2f8e" style="width: 60px; height: 40px" />
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center">
+      <label>Border</label>
+      <input type="color" id="borderColor" value="#ffaad4" style="width: 60px; height: 40px" />
+    </div>
+  </div>
+
+  <label>border style:</label>
+  <select id="border">
+    <option value="none">none</option>
+    <option value="solid" selected>solid</option>
+    <option value="dotted">dotted</option>
+    <option value="double">double</option>
+    <option value="rounded">rounded</option>
+  </select>
+
+  <label>border thickness (px):</label>
+  <input type="number" id="borderWidth" value="2" min="0" max="10" />
+
+  <label>custom background (optional):</label>
+  <input type="file" id="bgImage" accept="image/*" /><br />
+
+  <button type="submit">✨ Create Counter & Generate Embed Code ✨</button>
+</form>
+
+<div class="preview-box" style="display:none;">
+  <h2>🎀preview:</h2>
+  <img id="previewImage" src="" width="88" height="31" alt="Preview" style="border: 1px solid #ccc" />
+</div>
+
+<h2>📋 embed code:</h2>
+<textarea id="embedCode" rows="3" readonly placeholder="Your embed code will appear here..."></textarea>
+
+<img src="https://blob.gifcities.org/gifcities/BRHM5ESGDPK2LGZVO2XW6KR77AYJLVVQ.gif">
+
+<p>a site by <a href="disuko.neocities.org">disuko</a></p>
+
+<script src="./generator.js"></script>
+
+<script>
+  async function loadScrollingCounters() {
+    try {
+      const res = await fetch('/all-counters');
+      const ids = await res.json();
+      const track = document.getElementById('counterTrack');
+      ids.forEach(id => {
+        const img = document.createElement('img');
+        img.src = `/static-counter.png?page=${id}`;
+        img.width = 88;
+        img.height = 31;
+        img.style.marginRight = '12px';
+        track.appendChild(img);
+      });
+    } catch (err) {
+      console.error('Failed to load counters:', err);
+    }
+  }
+
+  loadScrollingCounters();
+</script>
+
 </body>
 </html>
