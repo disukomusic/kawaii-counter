@@ -34,9 +34,45 @@ function getFormParams() {
 
 function updatePreview() {
     const params = getFormParams();
-    previewImg.src = `/preview.png?${params}&_=${Date.now()}`;
-    previewBox.style.display = 'block';
+    const bgFile = document.getElementById('bgImage').files[0];
+
+    if (bgFile) {
+        const reader = new FileReader();
+        reader.onload = () => {
+            const bgImg = new Image();
+            const overlayImg = new Image();
+            let loaded = 0;
+
+            const tryRender = () => {
+                loaded++;
+                if (loaded < 2) return;
+
+                const canvas = document.createElement('canvas');
+                canvas.width = 88;
+                canvas.height = 31;
+                const ctx = canvas.getContext('2d');
+
+                ctx.drawImage(bgImg, 0, 0, 88, 31); // Draw background
+                ctx.drawImage(overlayImg, 0, 0, 88, 31); // Draw overlay
+
+                previewImg.src = canvas.toDataURL('image/png');
+                previewBox.style.display = 'block';
+            };
+
+            bgImg.onload = tryRender;
+            overlayImg.onload = tryRender;
+
+            bgImg.src = reader.result;
+            overlayImg.src = `/preview.png?${params}&_=${Date.now()}`;
+        };
+        reader.readAsDataURL(bgFile);
+    } else {
+        previewImg.src = `/preview.png?${params}&_=${Date.now()}`;
+        previewBox.style.display = 'block';
+    }
 }
+
+
 
 // Update preview on any input change
 ['label', 'layout', 'font', 'theme', 'fontColor', 'border', 'borderColor', 'borderWidth'].forEach(id => {
@@ -144,6 +180,26 @@ async function resizeAndUpload(file, counterId) {
         reader.readAsDataURL(file);
     });
 }
+
+async function loadScrollingCounters() {
+    try {
+        const res = await fetch('/all-counters');
+        const ids = await res.json();
+        const track = document.getElementById('counterTrack');
+        ids.forEach(id => {
+            const img = document.createElement('img');
+            img.src = `/static-counter.png?page=${id}`;
+            img.width = 88;
+            img.height = 31;
+            img.style.marginRight = '12px';
+            track.appendChild(img);
+        });
+    } catch (err) {
+        console.error('Failed to load counters:', err);
+    }
+}
+
+loadScrollingCounters();
 
 // Initialize preview on load
 updatePreview();

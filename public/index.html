@@ -90,6 +90,7 @@
 <div class="preview-box" style="display:none;">
   <h2>🎀preview:</h2>
   <img id="previewImage" src="" width="88" height="31" alt="Preview" style="border: 1px solid #ccc" />
+  <p>(no background support in preview yet. final generated image will have background!)</p>
 </div>
 
 <h2>📋 embed code:</h2>
@@ -100,28 +101,6 @@
 <p>a site by <a href="disuko.neocities.org">disuko</a></p>
 
 <script src="./generator.js"></script>
-
-<script>
-  async function loadScrollingCounters() {
-    try {
-      const res = await fetch('/all-counters');
-      const ids = await res.json();
-      const track = document.getElementById('counterTrack');
-      ids.forEach(id => {
-        const img = document.createElement('img');
-        img.src = `/static-counter.png?page=${id}`;
-        img.width = 88;
-        img.height = 31;
-        img.style.marginRight = '12px';
-        track.appendChild(img);
-      });
-    } catch (err) {
-      console.error('Failed to load counters:', err);
-    }
-  }
-
-  loadScrollingCounters();
-</script>
 
 </body>
 </html>

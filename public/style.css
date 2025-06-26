@@ -5,6 +5,12 @@
     text-align: center;
     padding: 2em;
 }
+
+* {
+    cursor: url(https://i6.glitter-graphics.org/pub/2296/2296576mt8r4rci40.gif),
+    auto !important;
+}
+
 form {
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(255, 182, 193, 0.2);

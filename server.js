@@ -209,12 +209,21 @@ function generateImage(query, data, res) {
 
   // Final SVG output
   const svg = `
-    <svg width="88" height="31" xmlns="http://www.w3.org/2000/svg">
-      <rect width="88" height="31" rx="${rx}" fill="${bg}" stroke="${borderColor}" stroke-width="${borderWidth}" stroke-dasharray="${dashArray}" />
-      ${bgImageTag}
-      ${svgContent}
-    </svg>
-  `;
+  <svg width="88" height="31" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background color -->
+    <rect width="88" height="31" rx="${rx}" fill="${bg}" />
+
+    <!-- Background image on top of background color -->
+    ${bgImageTag}
+
+    <!-- Border on top of background image -->
+    <rect width="88" height="31" rx="${rx}" fill="none" stroke="${borderColor}" stroke-width="${borderWidth}" stroke-dasharray="${dashArray}" />
+
+    <!-- Text content on top of everything -->
+    ${svgContent}
+  </svg>
+`;
+
 
   res.setHeader('Content-Type', 'image/svg+xml');
   res.send(svg);
